@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
-  View,
   Text,
-  KeyboardAvoidingView,
-  Platform,
-  Button,
+  View,
   TextInput,
+  Platform,
+  KeyboardAvoidingView,
+  Keyboard,
+  Alert,
   TouchableOpacity,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+
 import {Background} from '../components/Background';
-import {Logo} from '../components/Logo';
-import {useForm} from '../hooks/useForm';
-import {increment, decrement, loginUser} from '../redux/user/userActions';
 import {loginStyles} from '../theme/loginTheme';
+import {useForm} from '../hooks/useForm';
+import {StackScreenProps} from '@react-navigation/stack';
+import {useSelector, useDispatch} from 'react-redux';
+import {Logo} from '../components/Logo';
+import {loginUser, decrement} from '../redux/user/userActions';
+
+interface Props extends StackScreenProps<any, any> {}
 export const LoginScreen = () => {
   const {email, password, onChange} = useForm({
     email: '',

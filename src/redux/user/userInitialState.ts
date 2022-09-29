@@ -1,5 +1,7 @@
 export const USER_INITIAL_STATE = {
-  login: false,
-  user: null,
+  loged: false,
+  user: {},
   counter: 0,
+  loading: false,
+  error: '',
 };
