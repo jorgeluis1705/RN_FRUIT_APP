@@ -1,8 +1,8 @@
-import {COUNTER_CHANGE} from './userActions';
+import {COUNT_INCRESE} from './userActions';
 import {USER_INITIAL_STATE} from './userInitialState';
 export const USER_REDUCER = (state = USER_INITIAL_STATE, action: any) => {
   switch (action.type) {
-    case 'COUNT_INCRESE':
+    case COUNT_INCRESE:
       return {
         ...state,
         counter: state.counter + 1,

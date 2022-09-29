@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Background} from '../components/Background';
 import {Logo} from '../components/Logo';
 import {useForm} from '../hooks/useForm';
-import {increment, decrement} from '../redux/user/userActions';
+import {increment, decrement, loginUser} from '../redux/user/userActions';
 import {loginStyles} from '../theme/loginTheme';
 export const LoginScreen = () => {
   const {email, password, onChange} = useForm({
@@ -23,8 +23,8 @@ export const LoginScreen = () => {
 
   const dispatch = useDispatch();
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleIncrement = async () => {
+    dispatch(await loginUser());
   };
 
   const handleDecrement = () => {
@@ -32,6 +32,7 @@ export const LoginScreen = () => {
   };
   const onLogin = () => {
     console.log({email, password});
+    handleIncrement();
   };
   return (
     <>
