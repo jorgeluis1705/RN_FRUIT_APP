@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, KeyboardAvoidingView, Platform} from 'react-native';
 
 export const loginScreen = () => {
   return (
-    <View>
-      <Text>loginScreen</Text>
-    </View>
+    <>
+      <KeyboardAvoidingView
+        style={{flex: 1}}
+        behavior={
+          Platform.OS === 'ios' ? 'padding' : 'height'
+        }></KeyboardAvoidingView>
+    </>
   );
 };
