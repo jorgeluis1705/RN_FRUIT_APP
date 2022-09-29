@@ -44,7 +44,10 @@ export const loginStyles = StyleSheet.create({
     color: 'white',
   },
   newUserContainer: {
-    alignItems: 'flex-end',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginTop: 10,
   },
   buttonReturn: {

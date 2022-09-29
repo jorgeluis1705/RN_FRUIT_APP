@@ -97,7 +97,12 @@ export const LoginScreen: React.FC<StackScreenProps<any, any>> = ({
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => navigation.replace('register')}>
-              <Text style={loginStyles.buttonText}>Nueva cuenta </Text>
+              <Text style={loginStyles.buttonText}>New Account </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.replace('register')}>
+              <Text style={loginStyles.buttonText}>Enter as Guess </Text>
             </TouchableOpacity>
           </View>
         </View>
