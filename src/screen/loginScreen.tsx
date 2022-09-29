@@ -19,7 +19,9 @@ import {Logo} from '../components/Logo';
 import {loginUser, decrement} from '../redux/user/userActions';
 
 interface Props extends StackScreenProps<any, any> {}
-export const LoginScreen = () => {
+export const LoginScreen: React.FC<StackScreenProps<any, any>> = ({
+  navigation,
+}: Props): JSX.Element => {
   const {email, password, onChange} = useForm({
     email: '',
     password: '',
@@ -36,8 +38,8 @@ export const LoginScreen = () => {
     dispatch(decrement());
   };
   const onLogin = () => {
-    console.log({email, password});
     handleIncrement();
+    Keyboard.dismiss();
   };
   return (
     <>
@@ -94,7 +96,7 @@ export const LoginScreen = () => {
           <View style={loginStyles.newUserContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => console.log('a')}>
+              onPress={() => navigation.replace('register')}>
               <Text style={loginStyles.buttonText}>Nueva cuenta </Text>
             </TouchableOpacity>
           </View>
