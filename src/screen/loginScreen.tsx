@@ -1,10 +1,20 @@
 import React from 'react';
-import {View, Text, KeyboardAvoidingView, Platform} from 'react-native';
-import {useSelector} from 'react-redux';
-
+import {View, Text, KeyboardAvoidingView, Platform, Button} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {increment, decrement} from '../redux/user/userActions';
 export const LoginScreen = () => {
   const store = useSelector((e: any) => e.user);
-  console.log({store});
+
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(increment());
+    console.log(store);
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrement());
+  };
   return (
     <>
       <KeyboardAvoidingView
@@ -18,6 +28,12 @@ export const LoginScreen = () => {
             }}>
             {store.counter}
           </Text>
+          <Button
+            onPress={handleIncrement}
+            title="Learn More"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
         </View>
       </KeyboardAvoidingView>
     </>
