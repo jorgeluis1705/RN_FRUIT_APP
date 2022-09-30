@@ -52,6 +52,7 @@ export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
                     'transfer' as never,
                     {
                       fruitID: ele._id,
+                      cityOrigin: city._id,
                     } as never,
                   )
                 }

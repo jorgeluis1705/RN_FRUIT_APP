@@ -17,7 +17,7 @@ export const TransferScreen: FC = (): JSX.Element => {
   const {fruitID}: any = params;
   const cities = useSelector((store: any) => store.cities.cities);
   const fruit = useSelector((store: any) => store.fruits.fruit);
-  const choosedFruit = useSelector((store: any) => store.cities.cities);
+  const cityOrigin = useSelector((store: any) => store.cities.city);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export const TransferScreen: FC = (): JSX.Element => {
             }}>
             <Text style={styles.title}> Choose an city to send </Text>
             <Text style={styles.title}> {JSON.stringify(fruit)} </Text>
+            <Text style={styles.title}> {JSON.stringify(cityOrigin)} </Text>
           </View>
         ) : (
           <LoadingScreen />
