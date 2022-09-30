@@ -60,4 +60,7 @@ export const loginStyles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 100,
   },
+  globalMargin: {
+    marginHorizontal: 20,
+  },
 });
