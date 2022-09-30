@@ -22,7 +22,6 @@ export const RegisterScreen: React.FC<StackScreenProps<any, any>> = ({
     password: '',
   });
   const onRegister = () => {
-    console.log({email, password, name});
     Keyboard.dismiss();
   };
   return (

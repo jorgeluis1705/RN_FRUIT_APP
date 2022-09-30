@@ -21,7 +21,6 @@ export const decrement = () => {
 
 export const loginUser = async () => {
   const userRequest = await axiosClient.get('/fruits');
-  console.log(userRequest.data);
   return {
     type: USER_LOGIN,
     payload: true,

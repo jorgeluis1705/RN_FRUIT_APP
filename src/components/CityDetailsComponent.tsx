@@ -1,8 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, ScrollView, StyleSheet, Button} from 'react-native';
 import {ICity} from '../models/city.model';
 
 export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
+  const navigator = useNavigation();
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -45,6 +47,14 @@ export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
                 title="Tranfer"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
+                onPress={() =>
+                  navigator.navigate(
+                    'transfer' as never,
+                    {
+                      fruitID: ele._id,
+                    } as never,
+                  )
+                }
               />
             </View>
           ))}

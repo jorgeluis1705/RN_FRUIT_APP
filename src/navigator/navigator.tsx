@@ -5,6 +5,7 @@ import {CityDetailsScreen} from '../screen/CityDetailsScreen';
 import {HomeScreen} from '../screen/HomeScreen';
 import {LoginScreen} from '../screen/loginScreen';
 import {RegisterScreen} from '../screen/RegisterScreen';
+import {TransferScreen} from '../screen/TransferScreen';
 
 const Stack = createStackNavigator();
 export const MyStack = () => {
@@ -18,6 +19,7 @@ export const MyStack = () => {
       <Stack.Screen name="register" component={RegisterScreen} />
       <Stack.Screen name="home" component={HomeScreen} />
       <Stack.Screen name="cityDetails" component={CityDetailsScreen} />
+      <Stack.Screen name="transfer" component={TransferScreen} />
     </Stack.Navigator>
   );
 };

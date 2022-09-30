@@ -1,3 +1,4 @@
+import {fruitReducer} from './fruits/fruitsReducer';
 import {citiesReducer} from './cities/citiesReducer';
 import {
   applyMiddleware,
@@ -11,5 +12,6 @@ import {USER_REDUCER} from './user/userReducer';
 const rootReducer = combineReducers({
   user: USER_REDUCER,
   cities: citiesReducer,
+  fruits: fruitReducer,
 });
 export const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
