@@ -1,6 +1,7 @@
-import {useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {
+  Alert,
   Button,
   KeyboardAvoidingView,
   Platform,
@@ -10,25 +11,25 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Background} from '../components/Background';
-import {getFruitDetails} from '../redux/fruits/fruitsActions';
+import {getFruitDetails, tranferTruis} from '../redux/fruits/fruitsActions';
 import {LoadingScreen} from './LoadingScreen';
-import {Picker} from '@react-native-picker/picker';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select';
 
 export const TransferScreen: FC = (): JSX.Element => {
   const {params} = useRoute();
   const {fruitID}: any = params;
+  const nav = useNavigation();
   const cities = useSelector((store: any) => store.cities.cities);
   const fruit = useSelector((store: any) => store.fruits.fruit);
   const cityOrigin = useSelector((store: any) => store.cities.city);
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState('java');
-
+  console.log(fruit.name);
   const [transfer, setTransfer] = useState({
     origin: cityOrigin._id,
     count: 0,
-    name: '',
+    name: fruit.name,
     destiny: '',
   });
 
@@ -57,7 +58,31 @@ export const TransferScreen: FC = (): JSX.Element => {
     setTransfer({
       ...transfer,
       destiny: value,
+      name: fruit.name,
     });
+  };
+
+  const onYandlePress = async () => {
+    if (transfer.count < fruit.count) {
+      dispatch(
+        await tranferTruis(
+          transfer.origin,
+          transfer.count,
+          transfer.destiny,
+          transfer.name,
+        ),
+      );
+      nav.navigate('home' as never);
+    } else {
+      Alert.alert('Not enough', 'The amount to send exceeds the existing', [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ]);
+    }
   };
   return (
     <React.Fragment>
@@ -77,9 +102,11 @@ export const TransferScreen: FC = (): JSX.Element => {
               <RNPickerSelect
                 style={pickerSelectStyles}
                 onValueChange={onValueChangePicker}
-                items={cities.map((e: any) => {
-                  return {label: e.name, value: e._id};
-                })}
+                items={cities
+                  .filter((e: any) => e._id !== cityOrigin._id)
+                  .map((e: any) => {
+                    return {label: e.name, value: e._id};
+                  })}
               />
               <TextInput
                 style={styles.input}
@@ -94,9 +121,7 @@ export const TransferScreen: FC = (): JSX.Element => {
               title="Send Fruits"
               color="#841584"
               accessibilityLabel="Send Fruits"
-              onPress={() => {
-                console.log({transfer});
-              }}
+              onPress={onYandlePress}
             />
           </ScrollView>
         ) : (
