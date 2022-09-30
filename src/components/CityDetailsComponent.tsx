@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, StyleSheet, Button} from 'react-native';
 import {ICity} from '../models/city.model';
 
 export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
@@ -24,17 +24,29 @@ export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
         <Text style={styles.title}>Fruits in this shop</Text>
         <View style={{flexDirection: 'row'}}>
           {city.fruits.map((ele, index) => (
-            <Text
+            <View
               style={{
-                ...styles.regularText,
-                marginRight: 10,
-                color: 'black',
-                borderColor: 'green',
-                borderWidth: 1,
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                width: '100%',
               }}
               key={ele._id}>
-              {index + 1}.- {ele.name} {ele.count}
-            </Text>
+              <Text
+                style={{
+                  ...styles.regularText,
+                  marginRight: 10,
+                  color: 'black',
+                }}>
+                {index + 1}.- {ele.name} {ele.count}
+              </Text>
+              <Button
+                disabled={ele.count === 0}
+                title="Tranfer"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+              />
+            </View>
           ))}
         </View>
       </View>
