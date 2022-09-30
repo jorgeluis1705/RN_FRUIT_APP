@@ -25,13 +25,15 @@ export const CityCard = ({city}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      // onPress={
-      //     () => navigation.navigate('PokemonScreen', {
-      //         cityDetail: city,
-      //         color: bgColor
-      //     })
-      // }
-    >
+      onPress={() =>
+        navigation.navigate(
+          'cityDetails' as never,
+          {
+            city: city._id,
+            color: bgColor,
+          } as never,
+        )
+      }>
       <View
         style={{
           ...styles.cardContainer,

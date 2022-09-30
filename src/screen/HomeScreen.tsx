@@ -55,7 +55,7 @@ export const HomeScreen: React.FC = (): JSX.Element => {
                     marginBottom: top + 20,
                     paddingBottom: 10,
                   }}>
-                  Pokedex{' '}
+                  City
                 </Text>
               }
               renderItem={({item}) => <CityCard city={item} />}
