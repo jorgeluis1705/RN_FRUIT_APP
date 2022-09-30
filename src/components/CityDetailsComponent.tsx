@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  KeyboardAvoidingView,
-  Platform,
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {ICity} from '../models/city.model';
-import {LoadingScreen} from '../screen/LoadingScreen';
-import {Background} from './Background';
 
 export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
   return (
