@@ -21,7 +21,7 @@ export const TransferScreen: FC = (): JSX.Element => {
   const {fruitID}: any = params;
   const nav = useNavigation();
   const cities = useSelector((store: any) => store.cities.cities);
-  const fruit = useSelector((store: any) => store.fruits.fruit);
+  const fruit: any = useSelector((store: any) => store.fruits.fruit);
   const cityOrigin = useSelector((store: any) => store.cities.city);
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState('java');
@@ -63,7 +63,7 @@ export const TransferScreen: FC = (): JSX.Element => {
   };
 
   const onYandlePress = async () => {
-    if (transfer.count < fruit.count) {
+    if (transfer.count <= fruit.count) {
       dispatch(
         await tranferTruis(
           transfer.origin,

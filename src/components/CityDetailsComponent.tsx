@@ -24,14 +24,15 @@ export const CityDetailsComponent: React.FC<{city: ICity}> = ({city}) => {
         </Text>
 
         <Text style={styles.title}>Fruits in this shop</Text>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'column'}}>
           {city.fruits.map((ele, index) => (
             <View
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
                 width: '100%',
+                marginTop: 25,
               }}
               key={ele._id}>
               <Text

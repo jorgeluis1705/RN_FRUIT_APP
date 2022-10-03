@@ -52,7 +52,7 @@ export const LoginScreen: React.FC<StackScreenProps<any, any>> = ({
           <Text style={loginStyles.title}>Login</Text>
           <Text style={loginStyles.label}>Email:</Text>
           <TextInput
-            placeholder="Ingrese su email:"
+            placeholder="Enter Your email:"
             placeholderTextColor="rgba(255,255,255,0.4)"
             keyboardType="email-address"
             underlineColorAndroid="white"
@@ -67,7 +67,7 @@ export const LoginScreen: React.FC<StackScreenProps<any, any>> = ({
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <Text style={loginStyles.label}>Contraseña:</Text>
+          <Text style={loginStyles.label}>Password:</Text>
           <TextInput
             placeholder="******"
             placeholderTextColor="rgba(255,255,255,0.4)"

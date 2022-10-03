@@ -36,7 +36,7 @@ export const RegisterScreen: React.FC<StackScreenProps<any, any>> = ({
 
           <Text style={loginStyles.label}>Name:</Text>
           <TextInput
-            placeholder="Ingrese su nombre:"
+            placeholder="Enter your name:"
             placeholderTextColor="rgba(255,255,255,0.4)"
             underlineColorAndroid="white"
             style={[
@@ -52,7 +52,7 @@ export const RegisterScreen: React.FC<StackScreenProps<any, any>> = ({
           />
           <Text style={loginStyles.label}>Email:</Text>
           <TextInput
-            placeholder="Ingrese su email:"
+            placeholder="Enter your  email:"
             placeholderTextColor="rgba(255,255,255,0.4)"
             keyboardType="email-address"
             underlineColorAndroid="white"
@@ -89,7 +89,7 @@ export const RegisterScreen: React.FC<StackScreenProps<any, any>> = ({
               activeOpacity={0.8}
               style={loginStyles.button}
               onPress={onRegister}>
-              <Text style={loginStyles.buttonText}>Crear cuenta</Text>
+              <Text style={loginStyles.buttonText}> Create </Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity
